@@ -11,6 +11,15 @@ import javax.servlet.ServletResponse;
 
 public class ServletImpl implements Servlet{
 	
+	/*
+	 * Servlet Lifecycle
+	 * 1. Servlet Loading : class is loaded
+	 * 2. Servlet Intstantiation : object is created
+	 * 3. Servlet Initialization : init() method called
+	 * 4. service() method invoked
+	 * 5. destroy() method invoked
+	 */
+	
 	static {
 		System.out.println("ServletImpl :: Class loading...");
 	}

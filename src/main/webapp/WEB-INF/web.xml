@@ -15,4 +15,26 @@
     <url-pattern>/1</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>InitParam2</servlet-name>
+    <servlet-class>servletconfig_servletcontext.InitParam2</servlet-class>
+    <init-param>
+        <param-name>initParam1</param-name>
+        <param-value>value in web.xml</param-value>
+    </init-param>
+    <init-param>
+        <param-name>initParam2</param-name>
+        <param-value>value in web.xml</param-value>
+    </init-param>
+	</servlet>
+		<servlet-mapping> 
+	    <servlet-name>InitParam2</servlet-name>
+	    <url-pattern>/InitParam2</url-pattern>
+	</servlet-mapping>
+	
+	<context-param>
+		<param-name> context param </param-name>	
+		<param-value> in web.xml</param-value>
+	</context-param>
+	
 </web-app>
