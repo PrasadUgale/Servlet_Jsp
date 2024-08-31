@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(description = "Working with GET and POST methods", urlPatterns = { "/3" }, loadOnStartup = 10)
+@WebServlet(description = "Working with GET and POST methods", urlPatterns = { "/HttpServletImpl" }, loadOnStartup = 10)
 public class HttpServletImpl extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;

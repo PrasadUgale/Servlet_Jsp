@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet(urlPatterns = {"/2"}, loadOnStartup = 10)
+@WebServlet(urlPatterns = {"/GenericServletImpl"}, loadOnStartup = 10)
 public class GenericServletImpl extends GenericServlet {
 	
 	private static final long serialVersionUID = 1L;

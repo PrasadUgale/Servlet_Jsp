@@ -2,39 +2,80 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>Servlet</display-name>
   
+  <!-- Welcome Page to define which page will be displayed on start of application -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
+  <!-- Mapping Servlet to url pattern -->
   <servlet>
     <servlet-name>ServletImpl</servlet-name>
     <servlet-class>servlet.ServletImpl</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletImpl</servlet-name>
-    <url-pattern>/1</url-pattern>
+    <url-pattern>/ServletImpl</url-pattern>
   </servlet-mapping>
   
+  <!-- Set Init parameter for a servlet -->
   <servlet>
     <servlet-name>InitParam2</servlet-name>
     <servlet-class>servletconfig_servletcontext.InitParam2</servlet-class>
     <init-param>
-        <param-name>initParam1</param-name>
-        <param-value>value in web.xml</param-value>
+       <param-name>initParam1</param-name>
+       <param-value>value in web.xml</param-value>
     </init-param>
     <init-param>
-        <param-name>initParam2</param-name>
-        <param-value>value in web.xml</param-value>
+       <param-name>initParam2</param-name>
+       <param-value>value in web.xml</param-value>
     </init-param>
-	</servlet>
-		<servlet-mapping> 
-	    <servlet-name>InitParam2</servlet-name>
-	    <url-pattern>/InitParam2</url-pattern>
-	</servlet-mapping>
+  </servlet>
+  <servlet-mapping> 
+     <servlet-name>InitParam2</servlet-name>
+	 <url-pattern>/InitParam2</url-pattern>
+  </servlet-mapping>
+		
+  <!-- Set Context Param -->
+  <context-param>
+	 <param-name> context param </param-name>	
+	 <param-value> in web.xml</param-value>
+  </context-param>
+  
 	
-	<context-param>
-		<param-name> context param </param-name>	
-		<param-value> in web.xml</param-value>
-	</context-param>
+	<!-- Define and mapping of filter for urlpattern -->
+	<filter>
+		<filter-name>DemoFilter</filter-name>
+		<filter-class>filter.filter.DemoFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>DemoFilter</filter-name>
+		<url-pattern>/TargetServlet</url-pattern>
+		<!-- dispatcher can be REQUEST(default)/FORWARD/INCLUDE/ERROR -->
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<servlet>
+      <servlet-name>TargetServlet</servlet-name>
+      <servlet-class>filter.servlet.TargetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>TargetServlet</servlet-name>
+      <url-pattern>/TargetServlet</url-pattern>
+    </servlet-mapping>
+	
+	
+	
+	<!-- Defined Error Page to show when any exception Occurs -->
+	<!-- We can either give error page for status code like 404 Not Found-->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error404.html</location>
+	</error-page>
+
+	<!--Or give page for specific Exception occur at runtime like Arithmatic Exception-->
+	<error-page>
+		<exception-type>java.lang.ArithmeticException</exception-type>
+		<location>/error404.html</location>
+	</error-page>
+	
 	
 </web-app>
