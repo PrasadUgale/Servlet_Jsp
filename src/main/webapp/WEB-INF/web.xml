@@ -77,5 +77,18 @@
 		<location>/error404.html</location>
 	</error-page>
 	
-	
+	<!--Set init param for implicitobject.jsp page-->
+	<servlet>  
+		<servlet-name>implicitobject</servlet-name>  
+		<jsp-file>/jsp/implicitobjects.jsp</jsp-file>  
+		<init-param>  
+			<param-name>uname</param-name>  
+			<param-value>Hi! From web.xml</param-value>  
+		</init-param>  
+	</servlet>  	  
+	<servlet-mapping>  
+		<servlet-name>implicitobject</servlet-name>  
+		<url-pattern>/implicitobject</url-pattern>  
+	</servlet-mapping>  
+
 </web-app>
